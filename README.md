@@ -12,17 +12,15 @@ Nuno Silva - 202005501 <br>
 ClasStats
 
 ## Vision Stament
-Disponibilizar um sistema de feedback contínuo com informação disponível 
-tanto para estudantes como para docentes, de forma a facilitar a escolha de 
-turmas e os inquéritos pedagógicos.
+A nossa visão é simples: ser a ponte entre docentes e estudantes! 
+Ao contrário dos inquéritos pedagógicos podes avaliar os teus professores de forma rápida e contínua
 
-Queremos proporcionar um feedback mais compreensivo, responsivo e imparcial ao estudante e ao docente!
 ## Main Features
- - Feature 1 - Rating das aulas (por estrelas)
- - Feature 2 - Comentário opcional das aulas
- - Feature 3 - Rating das condições da sala
+ - Feature 1 - Avaliar aulas (por estrelas)
+ - Feature 2 - Adicionar comentário opcional das aulas
+ - Feature 3 - Avaliar condições da sala
  - Feature 4 - Tratamento e análise dos dados recolhidos
- - Feature 5 - Comentários predefinidos
+ - Feature 5 - Adicionar comentários predefinidos
 
 ## Required API's
 - Horários das turmas
