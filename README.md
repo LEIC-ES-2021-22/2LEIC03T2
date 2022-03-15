@@ -12,7 +12,7 @@ Nuno Silva - 202005501 <br>
 ClasStats
 
 ## Vision Stament
-Desenvolvida por estudantes, para estudantes. <br>
+Desenvolvida pela comunidade, para a comunidade. <br>
 A nossa visão é simples: ser a ponte entre docentes e estudantes! <br>
 Ao contrário dos inquéritos pedagógicos, a nossa aplicação disponibiliza um sistema de avaliação de fácil utilização e contínuo ao longo do semestre.
 
