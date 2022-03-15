@@ -23,9 +23,8 @@ Queremos proporcionar um feedback mais compreensivo, responsivo e imparcial ao e
  - Feature 3 - Rating das condições da sala
  - Feature 4 - Tratamento e análise dos dados recolhidos
  - Feature 5 - Comentários predefinidos
-...
 
 ## Required API's
-- Classe's timetable from sigarra
-- Each student's class
-- Teachers' sigarra profiles
+- Horários das turmas
+- Turmas de cada aluno
+- Perfil do sigarra de cada professor
