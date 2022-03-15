@@ -16,9 +16,13 @@ Disponibilizar um sistema de feedback contínuo com informação disponível
 tanto para estudantes como para docentes, de forma a facilitar a escolha de 
 turmas e os inquéritos pedagógicos.
 
+Queremos proporcionar um feedback mais compreensivo, responsivo e imparcial ao estudante e ao docente!
 ## Main Features
- - Feature 1 - Short description
- - Feature 2 - Short description
+ - Feature 1 - Rating das aulas (por estrelas)
+ - Feature 2 - Comentário opcional das aulas
+ - Feature 3 - Rating das condições da sala
+ - Feature 4 - Tratamento e análise dos dados recolhidos
+ - Feature 5 - Comentários predefinidos
 ...
 
 ## Required API's
