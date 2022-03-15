@@ -2,11 +2,11 @@
 
 ## Members
 
-Daniel Rodrigues - 202006562
-Duarte Lopes - 202006408
-Filipe Cardoso - 202006409
-Francisco Baptista - 201604320
-Nuno Silva - 202005501
+Daniel Rodrigues - 202006562 <br>
+Duarte Lopes - 202006408 <br>
+Filipe Cardoso - 202006409 <br>
+Francisco Baptista - 201604320 <br>
+Nuno Silva - 202005501 <br>
 
 # Product Name
 ClasStats
