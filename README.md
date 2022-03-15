@@ -12,8 +12,9 @@ Nuno Silva - 202005501 <br>
 ClasStats
 
 ## Vision Stament
-A nossa visão é simples: ser a ponte entre docentes e estudantes! 
-Ao contrário dos inquéritos pedagógicos podes avaliar os teus professores de forma rápida e contínua
+Desenvolvida por estudantes, para estudantes.
+A nossa visão é simples: ser a ponte entre docentes e estudantes!
+Ao contrário dos inquéritos pedagógicos, a nossa aplicação disponibiliza um sistema de avaliação de fácil utilização e contínuo ao longo do semestre.
 
 ## Main Features
  - Feature 1 - Avaliar aulas (por estrelas)
