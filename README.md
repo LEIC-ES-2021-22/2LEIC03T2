@@ -22,4 +22,6 @@ turmas e os inquéritos pedagógicos.
 ...
 
 ## Required API's
-- Student timetable from sigarra
+- Classe's timetable from sigarra
+- Each student's class
+- Teachers' sigarra profiles
