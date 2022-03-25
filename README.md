@@ -65,3 +65,14 @@ Ao contrário dos inquéritos pedagógicos, a nossa aplicação disponibiliza um
 | *Postconditions* | - O ecrã apresenta a média das classificações da respetiva sala de aula para o docente analisar. |
 | *Normal flow* | 1. O docente seleciona a opção visualizar classificações.<br> 2. O docente seleciona a opção classificações de sala de aula.<br> 3. O docente pesquisa a sala de aula que pretende. |
 | *Alternative flows and exceptions* |  |
+
+
+|||
+| --- | --- |
+| *Name* | Visualizar classificação |
+| *Actor* |  Docente | 
+| *Description* | O docente pode visualizar a sua classicação ou a dos seu colegas.  |
+| *Preconditions* | - Pelo menos um estudante já classificou o docente alvo da pesquisa. |
+| *Postconditions* |  - O ecrã apresenta a classificação média do docente em questão. |
+| *Normal flow* | 1. O docente seleciona a opção "visualizar classificações".<br> 2. O docente seleciona a opção "classificação dos docentes".<br> 3. O docente pesquisa a pessoa que pretende(incluindo o própio) |
+| *Alternative flows and exceptions* |  |
