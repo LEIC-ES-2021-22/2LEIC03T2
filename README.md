@@ -45,3 +45,13 @@ Ao contrário dos inquéritos pedagógicos, a nossa aplicação disponibiliza um
 | *Postconditions* |  - O rating fica registado. |
 | *Normal flow* | 1. O estudante entra na app.<br> 2. É apresentado um menu de escolha das aulas que teve nas últimas 8 horas.<br> 3. O estudante escolhe a aula que pretende classificar.<br> 4. O estudante classifica o docente da aula (0 a 5 estrelas).<br> 5. O estudante submete a sua classificação. |
 | *Alternative flows and exceptions* |  |
+
+|||
+| --- | --- |
+| *Name* | Classificar condições da sala |
+| *Actor* |  Estudante | 
+| *Description* | O estudante classifica as condições da sala de aula, e.g. computadores, microfone, projetor, etc. |
+| *Preconditions* | - A aula já terminou. <br>  - O estudante teve aula nessa sala nesse próprio dia (até 8 horas antes). |
+| *Postconditions* |  - O rating fica registado. |
+| *Normal flow* | 1. O estudante seleciona a opção de "Classificar sala de aula".<br> 2. É apresentado um menu com várias opções para avaliar as condições da sala em causa.<br> 3. O estudante submete a sua classificação. |
+| *Alternative flows and exceptions* |  |
