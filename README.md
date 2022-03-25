@@ -48,7 +48,7 @@ Ao contrário dos inquéritos pedagógicos, a nossa aplicação disponibiliza um
 
 |||
 | --- | --- |
-| *Name* | Classificar condições da sala<br> |
+| *Name* | <p>Classificar condições da sala</p> |
 | *Actor* |  Estudante | 
 | *Description* | O estudante classifica as condições da sala de aula, e.g. computadores, microfone, projetor, etc. |
 | *Preconditions* | - A aula já terminou. <br>  - O estudante teve aula nessa sala nesse próprio dia (até 8 horas antes). |
@@ -69,7 +69,7 @@ Ao contrário dos inquéritos pedagógicos, a nossa aplicação disponibiliza um
 
 |||
 | --- | --- |
-| *Name* | Visualizar classificação Docente|
+| *Name* | Visualizar classificação Docente |
 | *Actor* |  Docente | 
 | *Description* | O docente pode visualizar a sua classicação ou a dos seu colegas.  |
 | *Preconditions* | - Pelo menos um estudante já classificou o docente alvo da pesquisa. |
