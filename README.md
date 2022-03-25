@@ -86,3 +86,13 @@ Ao contrário dos inquéritos pedagógicos, a nossa aplicação disponibiliza um
 | *Postconditions* | - O ecrã expõe a classificação média do docente apresentado. |
 | *Normal flow* | 1. O estudante seleciona a opção "visualizar classificação Docente". <br> 2. O estudante pesquisa o nome do docente que pretende visualizar a classificação. |
 | *Alternative flows and exceptions* | |
+
+|||
+| --- | --- |
+| *Name* | Visualizar Classificação |
+| *Actor* |  Docente | 
+| *Description* | O docente tem a possibilidade de visualizar a classificação da sua aula, tal como a classificação da sala onde leciona. |
+| *Preconditions* | - O docente já foi avaliado pelo menos uma vez. <br>  - A sala onde leciona já foi avaliada pelo menos uma vez. |
+| *Postconditions* |  - O ecrã expõe a classificação do docente, tal como a classificação da sala onde leciona. |
+| *Normal flow* | 1. O docente entra na app.<br> 2. O docente seleciona a opção "visualizar a minha classificação".<br> 3. O docente escolhe a cadeira que pretende visualizar.<br>
+| *Alternative flows and exceptions* |  |
