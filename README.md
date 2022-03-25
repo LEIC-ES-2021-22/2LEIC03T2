@@ -69,7 +69,7 @@ Ao contrário dos inquéritos pedagógicos, a nossa aplicação disponibiliza um
 
 |||
 | --- | --- |
-| *Name* | Visualizar classificação |
+| *Name* | Visualizar classificação Docente|
 | *Actor* |  Docente | 
 | *Description* | O docente pode visualizar a sua classicação ou a dos seu colegas.  |
 | *Preconditions* | - Pelo menos um estudante já classificou o docente alvo da pesquisa. |
