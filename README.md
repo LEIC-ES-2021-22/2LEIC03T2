@@ -48,7 +48,7 @@ Ao contrário dos inquéritos pedagógicos, a nossa aplicação disponibiliza um
 
 |||
 | --- | --- |
-| *Name* | Classificar condições da sala |
+| *Name* | Classificar condições da sala<br> |
 | *Actor* |  Estudante | 
 | *Description* | O estudante classifica as condições da sala de aula, e.g. computadores, microfone, projetor, etc. |
 | *Preconditions* | - A aula já terminou. <br>  - O estudante teve aula nessa sala nesse próprio dia (até 8 horas antes). |
