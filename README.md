@@ -29,13 +29,19 @@ Ao contrário dos inquéritos pedagógicos, a nossa aplicação disponibiliza um
 - Turmas de cada aluno
 - Perfil do sigarra de cada professor
 
-## User case stories
+
+## Use Case Model
+
+ <p align="center" justify="center">
+  <img src="https://github.com/LEIC-ES-2021-22/2LEIC03T2/blob/main/images/UseCases.png"/>
+</p>
+
 |||
 | --- | --- |
-| *Name* | Editar |
-| *Actor* |  Editar | 
-| *Description* | Editar |
-| *Preconditions* | - Editar |
-| *Postconditions* | - Editar |
-| *Normal flow* | Editar1 <br> Editar2 <br>Editar3 |
-| *Alternative flows and exceptions* | Editar |
+| *Name* | Classificar desempenho do docente |
+| *Actor* |  Estudante | 
+| *Description* | O estudante classifica o docente da aula. |
+| *Preconditions* | - A aula já terminou. <br>  - O estudante teve aula nessa sala nesse próprio dia (até 8 horas antes). |
+| *Postconditions* |  - O rating fica registado. |
+| *Normal flow* | 1. O estudante entra na app.<br> 2. 2.  É apresentado um menu de escolha das aulas que teve nas últimas 8 horas.<br> 3. O estudante escolhe a aula que pretende classificar.<br> 4. O estudante classifica o docente da aula (0 a 5 estrelas).<br> 5. O estudante submete a sua classificação. |
+| *Alternative flows and exceptions* |  |
