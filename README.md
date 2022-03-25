@@ -62,6 +62,6 @@ Ao contrário dos inquéritos pedagógicos, a nossa aplicação disponibiliza um
 | *Actor* |  Docente | 
 | *Description* | O docente pode visualizar os ratings das condições da sala de aula como computador., mero-Fone, ou falta de cadeiras |
 | *Preconditions* | - Já houve classificações da sala de aula por parte dos estudantes. |
-| *Postconditions* |  O ecrã apresenta a média das classificações da respetiva sala de aula para o docente analisar. |
+| *Postconditions* | - O ecrã apresenta a média das classificações da respetiva sala de aula para o docente analisar. |
 | *Normal flow* | 1. O docente seleciona a opção visualizar classificações.<br> 2. O docente seleciona a opção classificações de sala de aula.<br> 3. O docente pesquisa a sala de aula que pretende. |
 | *Alternative flows and exceptions* |  |
