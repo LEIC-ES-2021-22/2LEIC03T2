@@ -37,7 +37,6 @@ Ao contrário dos inquéritos pedagógicos, a nossa aplicação disponibiliza um
 </p>
 
 |||
-| --- | --- |
 | *Name* | Classificar desempenho do docente |
 | *Actor* |  Estudante | 
 | *Description* | O estudante classifica o docente da aula. |
