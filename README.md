@@ -85,3 +85,9 @@ Ao contrário dos inquéritos pedagógicos, a nossa aplicação disponibiliza um
 | *Postconditions* |  - O ecrã expõe a classificação do docente, tal como a classificação da sala onde leciona. |
 | *Normal flow* | 1. O ator seleciona a opção "visualizar a classificação dos docentes ".<br> 2. O ator escolhe a unidade curricular que pretende visualizar e qual o docente.<br>
 | *Alternative flows and exceptions* | Caso não seja possível efetuar uma ligação com a base de dados a aplicação retorna um feedback vazio. |
+
+## Use Case Model
+
+ <p align="center" justify="center">
+  <img src="https://github.com/LEIC-ES-2021-22/2LEIC03T2/blob/main/images/DomainModel.jpg"/>
+</p>
