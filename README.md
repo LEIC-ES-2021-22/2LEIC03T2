@@ -12,9 +12,9 @@ You can find here detailed about the product (or mini-app or module), from a hig
   * [User stories](https://github.com/LEIC-ES-2021-22/2LEIC03T2/blob/main/docs/requirements.md#User-stories)
   * [Domain model](https://github.com/LEIC-ES-2021-22/2LEIC03T2/blob/main/docs/requirements.md#Domain-model)
 * [Architecture and Design](https://github.com/LEIC-ES-2021-22/2LEIC03T2/blob/main/docs/ArchitectureAndDesign.md)
-  * [Logical architecture](https://github.com/LEIC-ES-2021-22/2LEIC03T2/blob/main/docs/ArchitectureAndDesign.md#Logical-architecture)
-  * [Physical architecture](https://github.com/LEIC-ES-2021-22/2LEIC03T2/blob/main/docs/ArchitectureAndDesign.md#Physical-architecture)
-  * [Vertical prototype](https://github.com/LEIC-ES-2021-22/2LEIC03T2/blob/main/docs/ArchitectureAndDesign.md#Vertical-prototype)
+  * [Logical architecture](https://github.com/LEIC-ES-2021-22/2LEIC03T2/blob/main/docs/ArchitectureAndDesign.md#Logical-Architecture)
+  * [Physical architecture](https://github.com/LEIC-ES-2021-22/2LEIC03T2/blob/main/docs/ArchitectureAndDesign.md#Physical-Architecture)
+  * [Vertical prototype](https://github.com/LEIC-ES-2021-22/2LEIC03T2/blob/main/docs/ArchitectureAndDesign.md#Vertical-Prototype)
 * [Implementation]
 * [Test]
 * [Configuration and change management]
@@ -26,8 +26,8 @@ Please contact us!
 
 Thank you! <br>
 
-*Daniel Rodrigues - 202006562 <br>
-Duarte Lopes - 202006408 <br>
-Filipe Cardoso - 202006409 <br>
-Francisco Baptista - 201604320 <br>
-Nuno Silva - 202005501* <br>
+*Daniel Rodrigues* - 202006562 <br>
+*Duarte Lopes* - 202006408 <br>
+*Filipe Cardoso* - 202006409 <br>
+*Francisco Baptista* - 201604320 <br>
+*Nuno Silva* - 202005501 <br>
