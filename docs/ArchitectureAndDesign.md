@@ -9,7 +9,7 @@
 ### Physical architecture
 
  <p align="center" justify="center">
-  <img src="https://github.com/LEIC-ES-2021-22/2LEIC03T2/blob/main/images/PhysicalView.png"/>
+  <img src="https://github.com/LEIC-ES-2021-22/2LEIC03T2/blob/main/images/PhysicalView.jpg"/>
 </p>
 
 ### Vertical prototype
