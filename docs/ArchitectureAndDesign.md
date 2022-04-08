@@ -3,7 +3,7 @@
 ### Logical architecture
 
  <p align="center" justify="center">
-  <img src="https://github.com/LEIC-ES-2021-22/2LEIC03T2/blob/main/images/LogicalView.png"/>
+  <img src="https://github.com/LEIC-ES-2021-22/2LEIC03T2/blob/main/images/LogicalView.jpg"/>
 </p>
 
 ### Physical architecture
