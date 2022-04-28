@@ -1,6 +1,6 @@
 library Constants;
 
-const navclasStats = 'ClasStats';
+const navRatings = 'Classicações';
 const navPersonalArea = 'Área Pessoal';
 const navSchedule = 'Horário';
 const navExams = 'Mapa de Exames';

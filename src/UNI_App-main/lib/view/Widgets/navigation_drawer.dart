@@ -24,7 +24,7 @@ class NavigationDrawerState extends State<NavigationDrawer> {
     super.initState();
 
     drawerItems = {
-      Constants.navclasStats: _onSelectPage,
+      Constants.navRatings: _onSelectPage,
       Constants.navPersonalArea: _onSelectPage,
       Constants.navSchedule: _onSelectPage,
       Constants.navExams: _onSelectPage,
