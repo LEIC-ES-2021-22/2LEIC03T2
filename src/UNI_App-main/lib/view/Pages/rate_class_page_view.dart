@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:uni/view/Pages/general_page_view.dart';
 import 'package:uni/view/Widgets/terms_and_conditions_clasStats.dart';
 import 'package:uni/utils/constants.dart' as Constants;
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import 'exams_page_view.dart';
 
