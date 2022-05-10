@@ -14,6 +14,7 @@ import 'package:uni/utils/constants.dart' as Constants;
 import 'package:uni/view/Pages/about_page_view.dart';
 import 'package:uni/view/Pages/bug_report_page_view.dart';
 import 'package:uni/view/Pages/bus_stop_next_arrivals_page.dart';
+import 'package:uni/view/Pages/rate_class_page_view.dart';
 import 'package:uni/view/Pages/ratings_page_view.dart';
 import 'package:uni/view/Pages/exams_page_view.dart';
 import 'package:uni/view/Pages/home_page_view.dart';
@@ -85,7 +86,7 @@ class MyAppState extends State<MyApp> {
             switch (settings.name) {
               case '/' + Constants.navRatings:
                 return PageTransition.makePageTransition(
-                    page: RatingsPageView(), settings: settings);
+                    page: RateClassView(), settings: settings);
               case '/' + Constants.navPersonalArea:
                 return PageTransition.makePageTransition(
                     page: HomePageView(), settings: settings);

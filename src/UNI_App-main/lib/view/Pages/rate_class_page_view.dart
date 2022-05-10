@@ -15,7 +15,7 @@ class RateClassView extends StatefulWidget {
 }
 
 class RateClassViewState extends State<RateClassView> {
-  double? _ratingValue;
+  double _ratingValue = 0.0;
 
 
   @override
@@ -187,7 +187,7 @@ class RateClassViewState extends State<RateClassView> {
               )
               )
               )
-                  ]
+       ]
                 
     )
     );
