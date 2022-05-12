@@ -1,85 +1,36 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:uni/view/Pages/general_page_view.dart';
-import 'package:uni/view/Widgets/exam_card.dart';
-import 'package:uni/view/Widgets/terms_and_conditions_clasStats.dart';
-import 'package:uni/utils/constants.dart' as Constants;
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:uni/view/Pages/secondary_page_view.dart';
-import 'package:uni/view/Widgets/rate_page_title.dart';
-import 'package:uni/view/Widgets/rate_context.dart';
 
-import 'exams_page_view.dart';
+class RateContext extends StatefulWidget{
+  final String subject;
+  final String teacher;
 
-class RateClassView extends StatefulWidget {
-  /*const RateClassView({Key? key, required this.title}) : super(key: key);
-  final String title;*/
+  RateContext({
+    Key key,
+    @required this.subject,
+    @required this.teacher,
+  }) : super(key:key);
 
   @override
-  State<StatefulWidget> createState() => RateClassViewState();
+  RateContextState createState() => RateContextState();
 }
 
-class RateClassViewState extends SecondaryPageViewState {
+class RateContextState extends State<RateContext>{
   double _ratingValue = 0.0;
-
-
   @override
-  Widget getBody(BuildContext context) {
-    return RateList();
-  }
-}
-
-  class RateList extends StatelessWidget {
-    RateList({Key key}) : super(key: key);
-
-    Widget build(BuildContext context){
-      return ListView(
-        children: <Widget>[
-          Container(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: this.createRateColumn(context),
-            )
-          )
-        ]
-      );
-    }
-
-  List<Widget> createRateColumn(context){
-    final List<Widget> columns = <Widget>[];
-    columns.add(RatePageTitle(name: 'Classificações'));
-    columns.add(this.createRateCard(context));
-    return columns;
-  }
-
-  Widget createRateCard(context) {
-    final List<Widget> rateCards = <Widget>[];
-    rateCards.add(this.createRateContext(context));
-    return Column(children: rateCards);
-  }
-
-  Widget createRateContext(context){
-    return Container(
-      margin: EdgeInsets.only(bottom: 8),
-      padding: EdgeInsets.all(8),
+  Widget build(BuildContext context) {
+    return /*Center(
       child: Container(
-        margin: EdgeInsets.fromLTRB(12, 4, 12, 0),
-        child: RateContext(
-          subject: 'ES',
-          teacher: 'João',
+        padding: EdgeInsets.only(left:12.0, bottom: 8.0, right: 12),
+        margin: EdgeInsets.only(top:8.0),
+        color: Colors.black,
         ),
-      ),
-    );
-  }
+      );
+  }*/
 
-  }
-    //final MediaQueryData queryData = MediaQuery.of(context);
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    /*return Scaffold(
+    
+    /*Scaffold(
       /*appBar: AppBar(
         leading: Builder(builder: (context) => IconButton(
           icon: Icon(Icons.menu),
@@ -103,11 +54,11 @@ class RateClassViewState extends SecondaryPageViewState {
             ),
           )
         ],
-      ),*/
-      body: Column(
+      ),*/*/
+      Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Container(
+            /*Container(
               width: MediaQuery.of(context).size.width,
               height: 70,
               decoration: BoxDecoration(color: const Color(0xFFEDE6E7),
@@ -126,8 +77,8 @@ class RateClassViewState extends SecondaryPageViewState {
                 style: TextStyle(fontSize: 32),
               ),
             ),
-          ),
-          Container(
+          ),*/
+          /*Container(
             width: MediaQuery.of(context).size.width,
             height: 590,
             decoration: BoxDecoration(color: const Color(0xFFEDE6E7),
@@ -139,8 +90,8 @@ class RateClassViewState extends SecondaryPageViewState {
                 )
               ]
             ),
-            alignment: Alignment(0, -0.8),
-            child: Container(
+            alignment: Alignment(0, -0.8),*/
+            Container(
               width: 350,
               height: 350,
               decoration: BoxDecoration(
@@ -210,13 +161,13 @@ class RateClassViewState extends SecondaryPageViewState {
                           empty: const Icon(
                             Icons.star_outline,
                             color: const Color(0xFF75171E),
-                          )),
+                          )
+                          ),
                         onRatingUpdate: (value) {
                           setState(() {
                             _ratingValue = value;
-                      });
-                    }),
-                      ),
+                      }
+                );})),
                       Align(
                         alignment: Alignment(0.7, 0.9),
                         child: Text(
@@ -239,10 +190,8 @@ class RateClassViewState extends SecondaryPageViewState {
               }
               )
               )
-              )
-       ]
-                
-    )
-    );
+          ]
+              );
+              
     }
-}*/
+}
