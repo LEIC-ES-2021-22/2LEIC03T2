@@ -98,8 +98,8 @@ abstract class GeneralPageViewState extends State<StatefulWidget> {
           child: TextButton(
             onPressed: () {
               final currentRouteName = ModalRoute.of(context).settings.name;
-              if (currentRouteName != Constants.navRatings) {
-                Navigator.pushNamed(context, '/${Constants.navRatings}');
+              if (currentRouteName != Constants.navPersonalArea) {
+                Navigator.pushNamed(context, '/${Constants.navPersonalArea}');
               }
             },
             child: SvgPicture.asset(
