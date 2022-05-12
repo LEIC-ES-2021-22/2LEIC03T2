@@ -84,12 +84,12 @@ class MyAppState extends State<MyApp> {
           // ignore: missing_return
           onGenerateRoute: (RouteSettings settings) {
             switch (settings.name) {
-              case '/' + Constants.navRatings:
-                return PageTransition.makePageTransition(
-                    page: RateClassView(), settings: settings);
               case '/' + Constants.navPersonalArea:
                 return PageTransition.makePageTransition(
                     page: HomePageView(), settings: settings);
+              case '/' + Constants.navRatings:
+                return PageTransition.makePageTransition(
+                    page: RateClassView(), settings: settings);
               case '/' + Constants.navSchedule:
                 return PageTransition.makePageTransition(
                     page: SchedulePage(), settings: settings);
