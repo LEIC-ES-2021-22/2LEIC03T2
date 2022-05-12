@@ -12,6 +12,10 @@ class RateContext extends StatefulWidget{
     @required this.teacher,
   }) : super(key:key);
 
+  String getTeacher(){
+    return teacher;
+  }
+
   @override
   RateContextState createState() => RateContextState();
 }
@@ -20,77 +24,10 @@ class RateContextState extends State<RateContext>{
   double _ratingValue = 0.0;
   @override
   Widget build(BuildContext context) {
-    return /*Center(
-      child: Container(
-        padding: EdgeInsets.only(left:12.0, bottom: 8.0, right: 12),
-        margin: EdgeInsets.only(top:8.0),
-        color: Colors.black,
-        ),
-      );
-  }*/
-
-    
-    /*Scaffold(
-      /*appBar: AppBar(
-        leading: Builder(builder: (context) => IconButton(
-          icon: Icon(Icons.menu),
-          iconSize: 35, 
-          onPressed: () {
-          Scaffold.of(context).openDrawer();
-          },
-        ),
-        ),
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Image.asset('assets/images/classtats_logo_extended.png', height: 200, width: 200),
-        centerTitle: true,
-        backgroundColor: const Color(0xFF75171E),
-        actions: <Widget>[
-          Padding(
-            padding: EdgeInsets.only(right: 15.0),
-            child: Icon(
-              Icons.filter_alt,
-              size: 35,
-            ),
-          )
-        ],
-      ),*/*/
+    return
       Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            /*Container(
-              width: MediaQuery.of(context).size.width,
-              height: 70,
-              decoration: BoxDecoration(color: const Color(0xFFEDE6E7),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 5,
-                  blurRadius: 7,
-                )
-              ]
-            ),
-            child: Center(
-              child: Text(
-                'Classificações',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 32),
-              ),
-            ),
-          ),*/
-          /*Container(
-            width: MediaQuery.of(context).size.width,
-            height: 590,
-            decoration: BoxDecoration(color: const Color(0xFFEDE6E7),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 5,
-                  blurRadius: 7,
-                )
-              ]
-            ),
-            alignment: Alignment(0, -0.8),*/
             Container(
               width: 350,
               height: 350,
@@ -113,7 +50,7 @@ class RateContextState extends State<RateContext>{
                     Align(
                       alignment: Alignment(0, -0.9),
                       child: Text(
-                        'Engenharia de Software',
+                        widget.subject,
                         style: TextStyle(
                           fontSize: 25
                         ),
@@ -140,14 +77,14 @@ class RateContextState extends State<RateContext>{
                       Align(
                         alignment: Alignment(0, 0),
                         child: Text(
-                          'José Carlos Medeiros de Campos',
+                          widget.teacher,
                           style: TextStyle(
                             fontSize: 18
                           )
                         )
                       ),
                       Align(alignment: Alignment(0, 0.3),
-                      child: RatingBar( 
+                      child: RatingBar(
                         initialRating: 0,
                         direction: Axis.horizontal,
                         allowHalfRating: true,
@@ -192,6 +129,6 @@ class RateContextState extends State<RateContext>{
               )
           ]
               );
-              
+
     }
 }
