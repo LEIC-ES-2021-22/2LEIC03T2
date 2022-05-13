@@ -1,39 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:uni/model/entities/lecture.dart';
 import 'package:uni/view/Pages/secondary_page_view.dart';
 import 'package:uni/view/Widgets/rate_page_title.dart';
 import 'package:uni/view/Widgets/rate_context.dart';
 
 class RateClassView extends StatefulWidget {
-
   @override
   State<StatefulWidget> createState() => RateClassViewState();
 }
 
 class RateClassViewState extends SecondaryPageViewState {
-
   @override
   Widget getBody(BuildContext context) {
     return RateList();
   }
 }
 
-  class RateList extends StatelessWidget {
-    RateList({Key key}) : super(key: key);
+class RateList extends StatelessWidget {
+  RateList({Key key}) : super(key: key);
 
-    Widget build(BuildContext context){
-      return ListView(
-        children: <Widget>[
-          Container(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: this.createRateColumn(context),
-            )
-          )
-        ]
-      );
-    }
+  Widget build(BuildContext context) {
+    return ListView(children: <Widget>[
+      Container(
+          child: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: this.createRateColumn(context),
+      ))
+    ]);
+  }
 
-  List<Widget> createRateColumn(context){
+  List<Widget> createRateColumn(context) {
     final List<Widget> columns = <Widget>[];
     columns.add(RatePageTitle(name: 'Classificações'));
     columns.add(this.createRateCard(context));
@@ -42,22 +38,24 @@ class RateClassViewState extends SecondaryPageViewState {
 
   Widget createRateCard(context) {
     final List<Widget> rateCards = <Widget>[];
-    rateCards.add(this.createRateContext(context));
+    rateCards.add(createRateContext(
+        context, 'Bruno Lima', 'Engenharia de Software', 'TP'));
     return Column(children: rateCards);
   }
 
-  Widget createRateContext(context){
+  Widget createRateContext(
+      context, String subject, String teacher, String type) {
     return Container(
       margin: EdgeInsets.only(bottom: 8),
       padding: EdgeInsets.all(8),
       child: Container(
         margin: EdgeInsets.fromLTRB(12, 4, 12, 0),
         child: RateContext(
-          subject: 'ES',
-          teacher: 'João',
+          subject: subject,
+          teacher: teacher,
+          type: type,
         ),
       ),
     );
   }
-
-  }
+}
