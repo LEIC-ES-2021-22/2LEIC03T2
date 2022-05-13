@@ -20,16 +20,17 @@ class RateList extends StatelessWidget {
   RateList({Key key}) : super(key: key);
 
   Widget build(BuildContext context) {
+    final MediaQueryData queryData = MediaQuery.of(context);
     return ListView(children: <Widget>[
       Container(
           child: Column(
         mainAxisSize: MainAxisSize.max,
-        children: this.createRateColumn(context),
+        children: this.createRateColumn(queryData, context),
       ))
     ]);
   }
 
-  List<Widget> createRateColumn(context) {
+  List<Widget> createRateColumn(queryData, context) {
     final List<Widget> columns = <Widget>[];
     columns.add(RatePageTitle(name: 'Classificações'));
     columns.add(this.createRateCard(context));
@@ -38,8 +39,8 @@ class RateList extends StatelessWidget {
 
   Widget createRateCard(context) {
     final List<Widget> rateCards = <Widget>[];
-    rateCards.add(createRateContext(
-        context, 'Bruno Lima', 'Engenharia de Software', 'TP'));
+    rateCards
+        .add(createRateContext(context, 'XX', 'Engenharia de Software', 'TP'));
     return Column(children: rateCards);
   }
 
