@@ -21,6 +21,7 @@ import 'package:uni/view/Pages/home_page_view.dart';
 import 'package:uni/view/Pages/logout_route.dart';
 import 'package:uni/view/Pages/splash_page_view.dart';
 import 'package:uni/view/Widgets/page_transition.dart';
+import 'package:uni/view/Widgets/terms_and_conditions_clasStats.dart';
 import 'package:uni/view/navigation_service.dart';
 import 'package:uni/view/theme.dart';
 
@@ -49,7 +50,7 @@ Future<void> main() async {
 }
 
 /// Manages the state of the app
-/// 
+///
 /// This class is necessary to track the app's state for
 /// the current execution
 class MyApp extends StatefulWidget {
@@ -89,7 +90,7 @@ class MyAppState extends State<MyApp> {
                     page: HomePageView(), settings: settings);
               case '/' + Constants.navRatings:
                 return PageTransition.makePageTransition(
-                    page: RateClassView(), settings: settings);
+                    page: ClasStatsPageView(), settings: settings);
               case '/' + Constants.navSchedule:
                 return PageTransition.makePageTransition(
                     page: SchedulePage(), settings: settings);

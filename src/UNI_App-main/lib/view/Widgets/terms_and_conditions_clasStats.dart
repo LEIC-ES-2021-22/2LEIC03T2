@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:uni/controller/load_static/terms_and_conditions_clasStats.dart';
+import 'package:uni/view/Pages/rate_class_page_view.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class TermsAndConditionsClasStats extends StatelessWidget {
@@ -9,7 +10,8 @@ class TermsAndConditionsClasStats extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Future<String> termsAndConditionsFuture = readTermsAndConditionsClasStats();
+    final Future<String> termsAndConditionsFuture =
+        readTermsAndConditionsClasStats();
     return FutureBuilder(
         future: termsAndConditionsFuture,
         builder:
