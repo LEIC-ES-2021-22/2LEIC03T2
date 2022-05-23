@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:uni/view/Pages/general_page_view.dart';
 import 'package:uni/view/Pages/rate_class_page_view.dart';
+import 'package:uni/view/Pages/classes_ratings_page.dart';
 import 'package:uni/view/Widgets/page_transition.dart';
 import 'package:uni/view/Widgets/terms_and_conditions_clasStats.dart';
 import 'package:uni/utils/constants.dart' as Constants;
@@ -66,7 +67,8 @@ class ClasStatsPageViewState extends GeneralPageViewState {
                   final currentRouteName = ModalRoute.of(context).settings.name;
                   //Change Constants.navAbout to the Main "App" Page
                   if (currentRouteName != Constants.navExams) {
-                    Navigator.pushNamed(context, '/${Constants.navExams}');
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (_) => ClassRatingsView()));
                   }
                 },
                 child: const Text('Visualizar Classificações'),
