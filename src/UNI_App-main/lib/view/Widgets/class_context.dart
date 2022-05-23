@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uni/view/Widgets/rate_context.dart';
+import 'package:uni/view/Pages/teachers_ratings_page.dart';
+import 'package:uni/utils/constants.dart' as Constants;
 
 class ClassContext extends StatefulWidget {
   final String subject;
@@ -28,7 +30,6 @@ class ClassContextState extends State<ClassContext> {
             borderRadius: BorderRadius.circular(20.0),
             side: BorderSide(color: const Color(0xFF75171E), width: 2 )
             ),
-          //onPressed: onPressed
           child: Align(
             alignment: Alignment.center,
             child: Text(
@@ -38,7 +39,15 @@ class ClassContextState extends State<ClassContext> {
                 fontSize:20,
               ),
           )
-          )
+          ),
+          onPressed: () {
+                  final currentRouteName = ModalRoute.of(context).settings.name;
+                  //Change Constants.navAbout to the Main "App" Page
+                  if (currentRouteName != Constants.navExams) {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (_) => TeachersRatingsView()));
+                  }
+                },
           )
         /*Container(
           width: 350,
