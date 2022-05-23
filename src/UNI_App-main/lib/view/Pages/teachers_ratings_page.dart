@@ -13,7 +13,7 @@ class TeachersRatingsView extends StatefulWidget {
 class TeachersRatingsViewState extends SecondaryPageViewState {
   @override
   Widget getBody(BuildContext context) {
-    return RateList();
+    return TeacherRateList();
   }
 }
 
@@ -33,7 +33,7 @@ class TeacherRateList extends StatelessWidget {
 
   List<Widget> createTeacherRateColumn(queryData, context) {
     final List<Widget> columns = <Widget>[];
-    columns.add(RatePageTitle(name: 'Classificações'));
+    columns.add(RatePageTitle(name: 'Professores'));
     columns.add(this.createTeacherRateCard(context));
     return columns;
   }
