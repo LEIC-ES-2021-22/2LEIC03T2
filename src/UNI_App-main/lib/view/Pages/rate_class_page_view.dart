@@ -25,12 +25,12 @@ class RateList extends StatelessWidget {
       Container(
           child: Column(
         mainAxisSize: MainAxisSize.max,
-        children: this.createRateColumn(queryData, context),
+        children: this.createRateColumn(context),
       ))
     ]);
   }
 
-  List<Widget> createRateColumn(queryData, context) {
+  List<Widget> createRateColumn(context) {
     final List<Widget> columns = <Widget>[];
     columns.add(RatePageTitle(name: 'Classificações'));
     columns.add(this.createRateCard(context));
@@ -44,17 +44,14 @@ class RateList extends StatelessWidget {
     return Column(children: rateCards);
   }
 
-  Widget createRateContext(
-      context, String subject, String teacher, String type) {
+  Widget createRateContext(context, Lecture lecture) {
     return Container(
       margin: EdgeInsets.only(bottom: 8),
       padding: EdgeInsets.all(8),
       child: Container(
         margin: EdgeInsets.fromLTRB(12, 4, 12, 0),
         child: RateContext(
-          subject: subject,
-          teacher: teacher,
-          type: type,
+          lecture: lecture,
         ),
       ),
     );
