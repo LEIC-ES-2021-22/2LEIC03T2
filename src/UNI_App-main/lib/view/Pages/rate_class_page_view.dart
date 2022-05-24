@@ -35,9 +35,8 @@ class _RateClassFutureBuilder extends SecondaryPageViewState{
           builder:
               (BuildContext context, AsyncSnapshot<List<Lecture>> snapshot) {
             List<Widget> children;
-            //
             if (snapshot.hasData) {
-              children = <Widget>[
+              children = <Widget>[RatePageTitle(name: 'Classificações'),
                 Expanded(
                   child: ListView(
                     children: List<Widget>.generate(
