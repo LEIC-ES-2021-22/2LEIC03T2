@@ -3,32 +3,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:uni/view/Pages/rate_room_page_view.dart';
 
-class RateContext extends StatefulWidget {
-  final String subject;
-  final String teacher;
-  final String type;
+class RateRoomContext extends StatefulWidget {
+  final String room;
 
-  RateContext({
+  RateRoomContext({
     Key key,
-    @required this.subject,
-    @required this.teacher,
-    @required this.type,
+    @required this.room,
   }) : super(key: key);
 
-  String getTeacher() {
-    return teacher;
-  }
-
   @override
-  RateContextState createState() => RateContextState();
+  RateRoomContextState createState() => RateRoomContextState();
 }
 
-class RateContextState extends State<RateContext> {
+class RateRoomContextState extends State<RateRoomContext> {
   double _ratingValue = 0.0;
 
-  //Button
-  final ButtonStyle style =
-      ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+  //Pre Defined Comments Part
+  final List<String> entries = <String>['A', 'B', 'C'];
+  final List<int> colorCodes = <int>[600, 500, 100];
 
   @override
   Widget build(BuildContext context) {
@@ -51,33 +43,14 @@ class RateContextState extends State<RateContext> {
           child: LayoutBuilder(builder: (context, constraints) {
             return Stack(children: [
               Align(
-                alignment: Alignment(0, -0.9),
+                alignment: Alignment(0, -0.8),
                 child: Text(
-                  widget.subject + ' (' + widget.type + ')',
-                  style: TextStyle(fontSize: 25),
+                  "Sala: " + widget.room,
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
                 ),
               ),
               Align(
-                  alignment: Alignment(0, -0.5),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.grey,
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          width: 6,
-                          color: const Color(0xFF75171E),
-                        )),
-                    child: Icon(
-                      Icons.person,
-                      size: 70,
-                      color: Colors.white,
-                    ),
-                  )),
-              Align(
-                  alignment: Alignment(0, 0),
-                  child: Text(widget.teacher, style: TextStyle(fontSize: 18))),
-              Align(
-                  alignment: Alignment(0, 0.3),
+                  alignment: Alignment(0, -0.4),
                   child: RatingBar(
                       initialRating: 0,
                       direction: Axis.horizontal,
@@ -101,17 +74,22 @@ class RateContextState extends State<RateContext> {
                       })),
               Container(
                   child: Align(
-                      alignment: Alignment(0, 0.8),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          final currentRouteName =
-                              ModalRoute.of(context).settings.name;
-                          //Change Constants.navAbout to the Main "App" Page
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (_) => RateRoomView()));
+                      alignment: Alignment(0, 1.1),
+                      child: ListView.separated(
+                        padding: const EdgeInsets.all(10),
+                        itemCount: entries.length,
+                        shrinkWrap: true,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Container(
+                              height: 50,
+                              color: const Color(0xFF75171E),
+                              child: Center(
+                                  child: Text('Entry ${entries[index]}',
+                                      style: TextStyle(color: Colors.white))));
                         },
-                        child: const Text('Classificar Sala de Aula'),
-                      )))
+                        separatorBuilder: (BuildContext context, int index) =>
+                            const Divider(),
+                      ))),
             ]);
           }))
     ]);
