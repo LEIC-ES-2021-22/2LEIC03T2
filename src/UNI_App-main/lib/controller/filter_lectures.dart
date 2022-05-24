@@ -13,7 +13,10 @@ Future<List<Lecture>> getTodayLectures(Store<AppState> store) async{
   List<Lecture> result = <Lecture>[];
 
   for(Lecture lecture in lectures){
-    if(lecture.day == weekday && lecture.startTimeSeconds + lecture.blocks >= nowSeconds){
+    /*if(lecture.day == weekday-1 && lecture.startTimeSeconds + lecture.blocks >= nowSeconds){
+      result.add(lecture);
+    }*/
+    if(lecture.day == weekday-1){
       result.add(lecture);
     }
   }
