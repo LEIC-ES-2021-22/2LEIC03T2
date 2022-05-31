@@ -1,23 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:uni/view/Pages/rate_room_page_view.dart';
+import 'package:uni/model/entities/lecture.dart';
 
 class RateContext extends StatefulWidget {
-  final String subject;
-  final String teacher;
-  final String type;
+  final Lecture lecture;
 
   RateContext({
     Key key,
-    @required this.subject,
-    @required this.teacher,
-    @required this.type,
+    @required this.lecture,
   }) : super(key: key);
-
-  String getTeacher() {
-    return teacher;
-  }
 
   @override
   RateContextState createState() => RateContextState();
@@ -25,11 +17,6 @@ class RateContext extends StatefulWidget {
 
 class RateContextState extends State<RateContext> {
   double _ratingValue = 0.0;
-
-  //Button
-  final ButtonStyle style =
-      ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
-
   @override
   Widget build(BuildContext context) {
     return Column(mainAxisAlignment: MainAxisAlignment.start, children: [
@@ -53,7 +40,10 @@ class RateContextState extends State<RateContext> {
               Align(
                 alignment: Alignment(0, -0.9),
                 child: Text(
-                  widget.subject + ' (' + widget.type + ')',
+                  widget.lecture.subject +
+                      ' (' +
+                      widget.lecture.typeClass +
+                      ')',
                   style: TextStyle(fontSize: 25),
                 ),
               ),
@@ -75,7 +65,8 @@ class RateContextState extends State<RateContext> {
                   )),
               Align(
                   alignment: Alignment(0, 0),
-                  child: Text(widget.teacher, style: TextStyle(fontSize: 18))),
+                  child: Text(widget.lecture.teacher,
+                      style: TextStyle(fontSize: 18))),
               Align(
                   alignment: Alignment(0, 0.3),
                   child: RatingBar(
@@ -99,19 +90,15 @@ class RateContextState extends State<RateContext> {
                           _ratingValue = value;
                         });
                       })),
-              Container(
-                  child: Align(
-                      alignment: Alignment(0, 0.8),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          final currentRouteName =
-                              ModalRoute.of(context).settings.name;
-                          //Change Constants.navAbout to the Main "App" Page
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (_) => RateRoomView()));
-                        },
-                        child: const Text('Classificar Sala de Aula'),
-                      )))
+              Align(
+                  alignment: Alignment(0.7, 0.9),
+                  child: Text('Classificar aula',
+                      style: TextStyle(
+                          fontSize: 15, color: const Color(0xFF75171E)))),
+              Align(
+                  alignment: Alignment(0.92, 0.92),
+                  child: Icon(Icons.arrow_downward,
+                      color: const Color(0xFF75171E)))
             ]);
           }))
     ]);
