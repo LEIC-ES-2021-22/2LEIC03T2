@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:uni/model/entities/lecture.dart';
+import 'package:uni/view/Pages/rate_room_page_view.dart';
 
 class RateContext extends StatefulWidget {
   final Lecture lecture;
@@ -90,15 +91,19 @@ class RateContextState extends State<RateContext> {
                           _ratingValue = value;
                         });
                       })),
-              Align(
-                  alignment: Alignment(0.7, 0.9),
-                  child: Text('Classificar aula',
-                      style: TextStyle(
-                          fontSize: 15, color: const Color(0xFF75171E)))),
-              Align(
-                  alignment: Alignment(0.92, 0.92),
-                  child: Icon(Icons.arrow_downward,
-                      color: const Color(0xFF75171E)))
+              Container(
+                  child: Align(
+                      alignment: Alignment(0, 0.8),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          final currentRouteName =
+                              ModalRoute.of(context).settings.name;
+                          //Change Constants.navAbout to the Main "App" Page
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (_) => RateRoomView()));
+                        },
+                        child: const Text('Classificar Sala de Aula'),
+                      )))
             ]);
           }))
     ]);

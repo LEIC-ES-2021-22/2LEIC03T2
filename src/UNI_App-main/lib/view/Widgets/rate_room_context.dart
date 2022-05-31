@@ -2,13 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:uni/view/Pages/rate_room_page_view.dart';
+import 'package:uni/model/entities/lecture.dart';
 
 class RateRoomContext extends StatefulWidget {
-  final String room;
+  final Lecture lecture;
 
   RateRoomContext({
     Key key,
-    @required this.room,
+    @required this.lecture,
   }) : super(key: key);
 
   @override
@@ -48,7 +49,7 @@ class RateRoomContextState extends State<RateRoomContext> {
               Align(
                 alignment: Alignment(0, -0.8),
                 child: Text(
-                  "Sala: " + widget.room,
+                  "Sala: " + widget.lecture.room,
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
                 ),
               ),
