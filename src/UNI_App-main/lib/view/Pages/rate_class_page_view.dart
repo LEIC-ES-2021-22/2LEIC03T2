@@ -46,14 +46,18 @@ class _RateClassFutureBuilder extends SecondaryPageViewState {
             } else if (snapshot.connectionState == ConnectionState.done) {
               if (snapshot.hasError) {
                 children = <Widget>[
-                  const Icon(
-                    Icons.error_outline,
-                    color: Colors.red,
-                    size: 60,
-                  ),
-                  Padding(
-                      padding: const EdgeInsets.only(top: 16),
-                      child: Text('Não foi possível mostrar as aulas'))
+                  RatePageTitle(name: 'Classificações'),
+                  Expanded(
+                      child: ListView(
+                    children: [
+                      const Icon(
+                        Icons.error,
+                        color: Color(0xFF75151E),
+                        size: 60,
+                      ),
+                      Text('Não foi possível mostrar as aulas!')
+                    ],
+                  ))
                 ];
               } else if (snapshot.data.length > 0) {
                 children = <Widget>[
@@ -76,14 +80,17 @@ class _RateClassFutureBuilder extends SecondaryPageViewState {
               } else {
                 children = <Widget>[
                   RatePageTitle(name: 'Classificações'),
-                  const Icon(
-                    Icons.announcement_rounded,
-                    color: Color(0xFF75151E),
-                    size: 60,
-                  ),
-                  Padding(
-                      padding: const EdgeInsets.only(top: 16),
-                      child: Text('Ainda não tiveste aulas!'))
+                  Expanded(
+                      child: ListView(
+                    children: [
+                      const Icon(
+                        Icons.announcement_rounded,
+                        color: Color(0xFF75151E),
+                        size: 60,
+                      ),
+                      Text('Ainda não tiveste aulas!')
+                    ],
+                  ))
                 ];
               }
             }
