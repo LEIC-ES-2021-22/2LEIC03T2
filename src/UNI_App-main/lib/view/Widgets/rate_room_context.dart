@@ -19,15 +19,18 @@ class RateRoomContextState extends State<RateRoomContext> {
   double _ratingValue = 0.0;
 
   //Pre Defined Comments Part
-  final List<String> entries = <String>['A', 'B', 'C'];
-  final List<int> colorCodes = <int>[600, 500, 100];
+  final List<String> predefinedcomments = <String>[
+    'Falta de material',
+    'Desconfortavel',
+    'Mas condicoes audiovisuais'
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Column(mainAxisAlignment: MainAxisAlignment.start, children: [
       Container(
           width: 350,
-          height: 350,
+          height: 400,
           decoration: BoxDecoration(
               color: Colors.white,
               border: Border.all(color: Colors.white),
@@ -74,17 +77,17 @@ class RateRoomContextState extends State<RateRoomContext> {
                       })),
               Container(
                   child: Align(
-                      alignment: Alignment(0, 1.1),
+                      alignment: Alignment(0, 0.7),
                       child: ListView.separated(
                         padding: const EdgeInsets.all(10),
-                        itemCount: entries.length,
+                        itemCount: predefinedcomments.length,
                         shrinkWrap: true,
                         itemBuilder: (BuildContext context, int index) {
                           return Container(
                               height: 50,
                               color: const Color(0xFF75171E),
                               child: Center(
-                                  child: Text('Entry ${entries[index]}',
+                                  child: Text('${predefinedcomments[index]}',
                                       style: TextStyle(color: Colors.white))));
                         },
                         separatorBuilder: (BuildContext context, int index) =>
