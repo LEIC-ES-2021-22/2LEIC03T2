@@ -35,36 +35,7 @@ class _RateRoomFutureBuilder extends SecondaryPageViewState {
           builder:
               (BuildContext context, AsyncSnapshot<List<Lecture>> snapshot) {
             List<Widget> children;
-            if (snapshot.hasData) {
-              children = <Widget>[
-                RatePageTitle(name: 'Classificações da Sala de Aula'),
-                Expanded(
-                  child: ListView(
-                    children: List<Widget>.generate(
-                      snapshot.data.length,
-                      (index) {
-                        return Container(
-                          child: createRateCard(
-                            snapshot.data[index],
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ),
-              ];
-            } else if (snapshot.hasError) {
-              children = <Widget>[
-                const Icon(
-                  Icons.error_outline,
-                  color: Colors.red,
-                  size: 60,
-                ),
-                Padding(
-                    padding: const EdgeInsets.only(top: 16),
-                    child: Text('Não foi possível mostrar as aulas'))
-              ];
-            } else {
+            if (snapshot.connectionState == ConnectionState.waiting) {
               children = const <Widget>[
                 SizedBox(
                   width: 60,
@@ -72,6 +43,56 @@ class _RateRoomFutureBuilder extends SecondaryPageViewState {
                   child: CircularProgressIndicator(),
                 ),
               ];
+            } else if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasError) {
+                children = <Widget>[
+                  RatePageTitle(name: 'Classificações da Sala de Aula'),
+                  Expanded(
+                      child: ListView(
+                    children: [
+                      const Icon(
+                        Icons.error,
+                        color: Color(0xFF75151E),
+                        size: 60,
+                      ),
+                      Text('Não foi possível mostrar as aulas!')
+                    ],
+                  ))
+                ];
+              } else if (snapshot.data.length > 0) {
+                children = <Widget>[
+                  RatePageTitle(name: 'Classificações da Sala de Aula'),
+                  Expanded(
+                    child: ListView(
+                      children: List<Widget>.generate(
+                        snapshot.data.length,
+                        (index) {
+                          return Container(
+                            child: createRateCard(
+                              snapshot.data[index],
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ];
+              } else {
+                children = <Widget>[
+                  RatePageTitle(name: 'Classificações da Sala de Aula'),
+                  Expanded(
+                      child: ListView(
+                    children: [
+                      const Icon(
+                        Icons.announcement_rounded,
+                        color: Color(0xFF75151E),
+                        size: 60,
+                      ),
+                      Text('Ainda não tiveste aulas!')
+                    ],
+                  ))
+                ];
+              }
             }
             return Center(
               child: Column(
