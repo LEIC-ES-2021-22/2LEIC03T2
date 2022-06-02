@@ -49,7 +49,7 @@ class RateRoomContextState extends State<RateRoomContext> {
               Align(
                 alignment: Alignment(0, -0.8),
                 child: Text(
-                  "Sala: " + widget.lecture.room,
+                  widget.lecture.room + "(" + widget.lecture.subject + ")",
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
                 ),
               ),

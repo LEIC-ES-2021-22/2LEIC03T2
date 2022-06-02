@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:uni/model/entities/lecture.dart';
 import 'package:uni/view/Pages/rate_room_page_view.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class RateContext extends StatefulWidget {
   final Lecture lecture;
@@ -89,7 +90,9 @@ class RateContextState extends State<RateContext> {
                       onRatingUpdate: (value) {
                         setState(() {
                           _ratingValue = value;
+
                         });
+                        
                       })),
               Container(
                   child: Align(
