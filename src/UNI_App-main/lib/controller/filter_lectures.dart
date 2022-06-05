@@ -12,7 +12,7 @@ Future<List<Lecture>> getTodayLectures(Store<AppState> store) async {
 
   final now = DateTime.now();
   final nowSeconds = now.hour * 3600 + now.minute * 60 + now.second;
-  final weekday = 1;
+  final weekday = now.weekday;
 
   List<Lecture> result = <Lecture>[];
 
