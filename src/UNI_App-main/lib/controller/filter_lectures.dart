@@ -59,7 +59,7 @@ Future<List<RatedRoom>> getRatedRooms(Store <AppState> store) async{
 
   for(Lecture lecture in rooms){
 
-    currlecturerating = (await getRateRoom(lecture.room));
+    currlecturerating = (await getRoomRating(lecture.room));
     mostusedcomment = (await getCommentRoom(lecture.room));
 
     RatedRoom ratedRoom = new RatedRoom(lecture, currlecturerating, mostusedcomment);
@@ -84,7 +84,6 @@ Future<Map<String, dynamic>> getTeacherRaing(String subject) async {
       sum.update(doc.data()['teacher'],
           (value) => counter[doc.data()['teacher']] + doc.data()['rating']);
     } else {
-      print('TESTE2');
       counter[doc.data()['teacher']] = 1;
       sum[doc.data()['teacher']] = doc.data()['rating'];
     }

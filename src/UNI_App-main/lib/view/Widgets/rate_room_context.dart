@@ -148,7 +148,7 @@ class RateRoomContextState extends State<RateRoomContext> {
                           for(PredefinedComment predefinedComment in predefinedComments){
                             if(predefinedComment.isChecked)
                             //Submits & processes data to the database
-                            addRoomRating(widget.lecture.subject, widget.lecture.room, _ratingValue, predefinedComment.comment);
+                            rateRoom(widget.lecture.subject, widget.lecture.room, _ratingValue, predefinedComment.comment);
                           }
 
                           final currentRouteName =
