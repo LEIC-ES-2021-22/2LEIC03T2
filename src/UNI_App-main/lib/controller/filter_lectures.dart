@@ -1,18 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:uni/model/entities/lecture.dart';
 import 'package:redux/redux.dart';
 import 'package:uni/model/app_state.dart';
+import 'package:uni/model/entities/ratedroom.dart';
 import 'package:uni/redux/action_creators.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:uni/view/Widgets/rate_room_context.dart';
 
 Future<List<Lecture>> getTodayLectures(Store<AppState> store) async {
   List<Lecture> lectures = await getLectures(store);
 
   final now = DateTime.now();
   final nowSeconds = now.hour * 3600 + now.minute * 60 + now.second;
-  final weekday = now.weekday;
+  final weekday = 1;
 
   List<Lecture> result = <Lecture>[];
 
@@ -25,6 +25,51 @@ Future<List<Lecture>> getTodayLectures(Store<AppState> store) async {
 
   return result;
 }
+
+
+Future<List<Lecture>> getScheduleRooms(Store<AppState> store) async{
+  List <Lecture> lectures = await getLectures(store);
+
+  bool foundroom = false;
+
+  List<Lecture> result = <Lecture>[];
+
+  for(Lecture lecture in lectures){
+    foundroom = false;
+    for(Lecture storedlecture in result){
+      if(storedlecture.room == lecture.room){
+        foundroom = true;
+        break;
+      }
+    }
+
+    if(!foundroom)
+      result.add(lecture);
+  }
+
+  return result;
+}
+
+Future<List<RatedRoom>> getRatedRooms(Store <AppState> store) async{
+
+  List <Lecture> rooms = await getScheduleRooms(store);
+  List<RatedRoom> ratedrooms = <RatedRoom>[];
+  double currlecturerating;
+  String mostusedcomment;
+
+  for(Lecture lecture in rooms){
+
+    currlecturerating = (await getRateRoom(lecture.room));
+    mostusedcomment = (await getCommentRoom(lecture.room));
+
+    RatedRoom ratedRoom = new RatedRoom(lecture, currlecturerating, mostusedcomment);
+
+    ratedrooms.add(ratedRoom);
+  }
+
+  return ratedrooms;
+}
+
 
 Future<num> getRateTeacher(String name, String subject) async {
   num counter = 0, sum = 0;
@@ -41,7 +86,7 @@ Future<num> getRateTeacher(String name, String subject) async {
   return sum / counter;
 }
 
-Future<num> getRateRoom(String name) async {
+Future<double> getRateRoom(String name) async {
   num counter = 0, sum = 0;
   var collection = FirebaseFirestore.instance
       .collection('rooms')
@@ -54,6 +99,39 @@ Future<num> getRateRoom(String name) async {
   if (counter == 0) return 0;
   return sum / counter;
 }
+
+Future<String> getCommentRoom(String name) async {
+
+  //Initializes comments map to assert what is the most comment one
+  final Map<String, int> comments = {
+    "Falta de Material": 0,
+    "Desconfortável": 0,
+    "Más condições audiovisuais": 0,
+  };
+
+  int maxcnt = 0;
+  String mostchoosedcomment = null;
+
+  var collection = FirebaseFirestore.instance
+      .collection('rooms')
+      .where('name', isEqualTo: name);
+  var querySnapshot = await collection.get();
+  for (var doc in querySnapshot.docs) {
+    if(comments.containsKey(doc.data()['comment'])){
+      comments.update(doc.data()['comment'], (value) => ++value);
+    }
+  }
+
+  for(String s in comments.keys){
+    if(comments[s] > maxcnt){
+      maxcnt = comments[s];
+      mostchoosedcomment = s;
+    }
+  }
+
+  return mostchoosedcomment;
+}
+
 
 Future<void> addRoomRating(
     String subject, String name, double rating, String comment) async {

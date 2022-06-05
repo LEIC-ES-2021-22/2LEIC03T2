@@ -89,7 +89,6 @@ class RateContextState extends State<RateContext> {
                       onRatingUpdate: (value) {
                         setState(() {
                           _ratingValue = value;
-
                         });
                         
                       })),
