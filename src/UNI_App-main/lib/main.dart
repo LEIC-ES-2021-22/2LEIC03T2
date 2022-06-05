@@ -7,6 +7,7 @@ import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:sentry/sentry.dart';
 import 'package:redux/redux.dart';
 import 'package:uni/controller/middleware.dart';
+import 'package:uni/firebase_options.dart';
 import 'package:uni/model/app_state.dart';
 import 'package:uni/redux/actions.dart';
 import 'package:uni/redux/reducers.dart';
@@ -24,9 +25,12 @@ import 'package:uni/view/Widgets/page_transition.dart';
 import 'package:uni/view/Widgets/terms_and_conditions_clasStats.dart';
 import 'package:uni/view/navigation_service.dart';
 import 'package:uni/view/theme.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import 'controller/on_start_up.dart';
 import 'model/schedule_page_model.dart';
+
+import 'controller/filter_lectures.dart';
 
 /// Stores the state of the app
 final Store<AppState> state = Store<AppState>(appReducers,
@@ -39,6 +43,12 @@ SentryEvent beforeSend(SentryEvent event) {
 }
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  addRoomRating('teste1', 'teste1', 5, 'teste3');
+  addClassRating('teste1', 'teste', 5);
   OnStartUp.onStart(state);
   await SentryFlutter.init(
     (options) {
