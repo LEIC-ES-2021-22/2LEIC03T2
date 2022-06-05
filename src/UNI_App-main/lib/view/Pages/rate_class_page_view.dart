@@ -85,7 +85,7 @@ class _RateClassFutureBuilder extends SecondaryPageViewState {
                     children: [
                       const Icon(
                         Icons.announcement_rounded,
-                        color: Color(0xFF75151E), 
+                        color: Color(0xFF75151E),
                         size: 60,
                       ),
                       Text('Ainda não tiveste aulas!')

@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:uni/model/entities/lecture.dart';
 import 'package:redux/redux.dart';
 import 'package:uni/model/app_state.dart';
 import 'package:uni/redux/action_creators.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 Future<List<Lecture>> getTodayLectures(Store<AppState> store) async {
   List<Lecture> lectures = await getLectures(store);
@@ -24,12 +26,33 @@ Future<List<Lecture>> getTodayLectures(Store<AppState> store) async {
   return result;
 }
 
-Future<double> getRateTeacher(String name, String subject) async {
-  double sum = 0;
-  double counter = 0;
+Future<num> getRateTeacher(String name, String subject) async {
+  num counter = 0, sum = 0;
+  var collection = FirebaseFirestore.instance
+      .collection('teachers')
+      .where('teacher', isEqualTo: name)
+      .where('subject', isEqualTo: subject);
+  var querySnapshot = await collection.get();
+  for (var doc in querySnapshot.docs) {
+    counter++;
+    sum += doc.data()['rating'];
+  }
+  if (counter == 0) return 0;
+  return sum / counter;
+}
 
-  //final data = FirebaseFirestore.instance.collection('teachers').where('name',isEqualTo: name).where('subject', isEqualTo: subject);
-  //FirebaseFirestore.instance.collection('teachers').snapshots()
+Future<num> getRateRoom(String name) async {
+  num counter = 0, sum = 0;
+  var collection = FirebaseFirestore.instance
+      .collection('rooms')
+      .where('name', isEqualTo: name);
+  var querySnapshot = await collection.get();
+  for (var doc in querySnapshot.docs) {
+    counter++;
+    sum += doc.data()['rating'];
+  }
+  if (counter == 0) return 0;
+  return sum / counter;
 }
 
 Future<void> addRoomRating(

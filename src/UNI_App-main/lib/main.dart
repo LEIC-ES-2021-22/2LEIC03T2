@@ -47,8 +47,6 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  addRoomRating('teste1', 'teste1', 5, 'teste3');
-  addClassRating('teste1', 'teste', 5);
   OnStartUp.onStart(state);
   await SentryFlutter.init(
     (options) {
