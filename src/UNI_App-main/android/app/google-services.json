@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "736746569544",
+    "project_id": "classtas-39efb",
+    "storage_bucket": "classtas-39efb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736746569544:android:24d86f50f335113d04bd7d",
+        "android_client_info": {
+          "package_name": "pt.up.fe.ni.uni"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "736746569544-57dletks7j0emdisegrjromhqjcb967l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPyQV4lAEKoysh8K5x6MRVaHwq1HbTYZA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "736746569544-57dletks7j0emdisegrjromhqjcb967l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
