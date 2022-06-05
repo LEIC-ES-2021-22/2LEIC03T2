@@ -70,23 +70,36 @@ Future<List<RatedRoom>> getRatedRooms(Store <AppState> store) async{
   return ratedrooms;
 }
 
-
-Future<num> getRateTeacher(String name, String subject) async {
-  num counter = 0, sum = 0;
-  var collection = FirebaseFirestore.instance
+Future<Map<String, dynamic>> getTeacherRaing(String subject) async {
+  Map counter = new Map<String, dynamic>();
+  Map sum = new Map<String, dynamic>();
+  final collection = FirebaseFirestore.instance
       .collection('teachers')
-      .where('teacher', isEqualTo: name)
       .where('subject', isEqualTo: subject);
-  var querySnapshot = await collection.get();
+  final querySnapshot = await collection.get();
   for (var doc in querySnapshot.docs) {
-    counter++;
-    sum += doc.data()['rating'];
+    if (counter.containsKey(doc.data()['teacher'])) {
+      counter.update(
+          doc.data()['teacher'], (value) => counter[doc.data()['teacher']] + 1);
+      sum.update(doc.data()['teacher'],
+          (value) => counter[doc.data()['teacher']] + doc.data()['rating']);
+    } else {
+      print('TESTE2');
+      counter[doc.data()['teacher']] = 1;
+      sum[doc.data()['teacher']] = doc.data()['rating'];
+    }
   }
-  if (counter == 0) return 0;
-  return sum / counter;
+
+  Map result = new Map<String, dynamic>();
+  counter.forEach((key, value) {
+    result[key] = sum[key] / value;
+  });
+
+  return result;
 }
 
-Future<double> getRateRoom(String name) async {
+
+Future<double> getRoomRating(String name) async {
   num counter = 0, sum = 0;
   var collection = FirebaseFirestore.instance
       .collection('rooms')
@@ -132,14 +145,12 @@ Future<String> getCommentRoom(String name) async {
   return mostchoosedcomment;
 }
 
-
-Future<void> addRoomRating(
-    String subject, String name, double rating, String comment) async {
+Future<void> rateRoom(String subject, String name, double rating, String comment) async {
   return FirebaseFirestore.instance.collection('rooms').add(
       {'comment': comment, 'name': name, 'subject': subject, 'rating': rating});
 }
 
-Future<void> addClassRating(String subject, String teacher, double rating) {
+Future<void> rateTeacher(String subject, String teacher, double rating) {
   return FirebaseFirestore.instance
       .collection('teachers')
       .add({'subject': subject, 'teacher': teacher, 'rating': rating});
