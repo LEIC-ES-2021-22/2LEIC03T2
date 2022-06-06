@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:uni/view/Pages/general_page_view.dart';
-import 'package:uni/view/Pages/rate_class_page_view.dart';
 import 'package:uni/view/Pages/classification_room_page_view.dart';
-import 'package:uni/view/Widgets/terms_and_conditions_clasStats.dart';
 import 'package:uni/utils/constants.dart' as Constants;
-import 'package:uni/view/Pages/ratings_selection_view.dart';
+import 'package:uni/view/Pages/teachers_ratings_page.dart';
 
-class ClasStatsPageView extends StatefulWidget {
+class RatingsSelectionView extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => ClasStatsPageViewState();
+  State<StatefulWidget> createState() => RatingsSelectionViewState();
 }
 
 /// Manages the 'about' section of the app.
-class ClasStatsPageViewState extends GeneralPageViewState {
+class RatingsSelectionViewState extends GeneralPageViewState {
   @override
   Widget getBody(BuildContext context) {
     final MediaQueryData queryData = MediaQuery.of(context);
 
     //Button
     final ButtonStyle style =
-        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+    ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
 
     return ListView(
       children: <Widget>[
@@ -32,15 +30,15 @@ class ClasStatsPageViewState extends GeneralPageViewState {
             )),
         Center(
             child: Padding(
-          padding: EdgeInsets.only(
-              left: queryData.size.width / 12,
-              right: queryData.size.width / 12,
-              top: queryData.size.width / 12),
-          //bottom: queryData.size.width / 12),
-          child: Column(children: <Widget>[
-            TermsAndConditionsClasStats(), //Fetches Text
-          ]),
-        )),
+              padding: EdgeInsets.only(
+                  left: queryData.size.width / 12,
+                  right: queryData.size.width / 12,
+                  top: queryData.size.width / 12),
+              //bottom: queryData.size.width / 12),
+              child: Column(children: <Widget>[
+               Text("Que classificações pretendes visualizar:", style: const TextStyle(fontSize: 15)),
+              ]),
+            )),
         Container(
           margin: const EdgeInsets.only(bottom: 20.0),
           child: Column(
@@ -54,10 +52,10 @@ class ClasStatsPageViewState extends GeneralPageViewState {
                   //Change Constants.navAbout to the Main "App" Page
                   if (currentRouteName != Constants.navSchedule) {
                     Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => RateClassView()));
+                        MaterialPageRoute(builder: (_) => TeachersRatingsView()));
                   }
                 },
-                child: const Text('Classificar Aulas'),
+                child: const Text('Professores'),
               ),
               ElevatedButton(
                 style: style,
@@ -66,10 +64,10 @@ class ClasStatsPageViewState extends GeneralPageViewState {
                   //Change Constants.navAbout to the Main "App" Page
                   if (currentRouteName != Constants.navSchedule) {
                     Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => RatingsSelectionView()));
+                        MaterialPageRoute(builder: (_) => ClassificationRoomView()));
                   }
                 },
-                child: const Text('Visualizar Classificações'),
+                child: const Text('Salas de Aula'),
               ),
             ],
           ),
