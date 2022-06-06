@@ -17,8 +17,8 @@ Future<List<Lecture>> getTodayLectures(Store<AppState> store) async {
   List<Lecture> result = <Lecture>[];
 
   for (Lecture lecture in lectures) {
-    if (lecture.day == weekday - 1 &&
-        lecture.startTimeSeconds + 60 * 30 * lecture.blocks < nowSeconds) {
+    if (lecture.day == weekday - 1 /*&&
+        lecture.startTimeSeconds + 60 * 30 * lecture.blocks < nowSeconds*/) {
       result.add(lecture);
     }
   }
@@ -70,7 +70,7 @@ Future<List<RatedRoom>> getRatedRooms(Store <AppState> store) async{
   return ratedrooms;
 }
 
-Future<Map<String, dynamic>> getTeacherRaing(String subject) async {
+Future<Map<String, dynamic>> getTeacherRating(String subject) async {
   Map counter = new Map<String, dynamic>();
   Map sum = new Map<String, dynamic>();
   final collection = FirebaseFirestore.instance
@@ -144,12 +144,12 @@ Future<String> getCommentRoom(String name) async {
   return mostchoosedcomment;
 }
 
-Future<void> rateRoom(String subject, String name, double rating, String comment) async {
+Future<void> rateRoom(String subject, String name, double rating, String comment) async{
   return FirebaseFirestore.instance.collection('rooms').add(
       {'comment': comment, 'name': name, 'subject': subject, 'rating': rating});
 }
 
-Future<void> rateTeacher(String subject, String teacher, double rating) {
+Future<void> rateTeacher(String subject, String teacher, double rating){
   return FirebaseFirestore.instance
       .collection('teachers')
       .add({'subject': subject, 'teacher': teacher, 'rating': rating});
