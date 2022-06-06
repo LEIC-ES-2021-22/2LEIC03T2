@@ -5,15 +5,15 @@ import 'package:uni/controller/filter_lectures.dart';
 import 'package:uni/model/entities/lecture.dart';
 import 'package:uni/view/Pages/secondary_page_view.dart';
 import 'package:uni/view/Widgets/rate_page_title.dart';
-import 'package:uni/view/Widgets/rate_context.dart';
+import 'package:uni/view/Widgets/rate_room_context.dart';
 import 'package:uni/model/app_state.dart';
 
-class RateClassView extends StatefulWidget {
+class RateRoomView extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _RateClassFutureBuilder();
+  State<StatefulWidget> createState() => _RateRoomFutureBuilder();
 }
 
-class _RateClassFutureBuilder extends SecondaryPageViewState {
+class _RateRoomFutureBuilder extends SecondaryPageViewState {
   Future<List<Lecture>> lectures;
 
   @override
@@ -26,7 +26,6 @@ class _RateClassFutureBuilder extends SecondaryPageViewState {
     final store = StoreProvider.of<AppState>(context);
     lectures = getTodayLectures(store);
     final MediaQueryData queryData = MediaQuery.of(context);
-    getTeacherRaing('ES');
 
     return DefaultTextStyle(
         style: Theme.of(context).textTheme.headline2,
@@ -47,7 +46,7 @@ class _RateClassFutureBuilder extends SecondaryPageViewState {
             } else if (snapshot.connectionState == ConnectionState.done) {
               if (snapshot.hasError) {
                 children = <Widget>[
-                  RatePageTitle(name: 'Classificações'),
+                  RatePageTitle(name: 'Classificações da Sala de Aula'),
                   Expanded(
                       child: ListView(
                     children: [
@@ -62,7 +61,7 @@ class _RateClassFutureBuilder extends SecondaryPageViewState {
                 ];
               } else if (snapshot.data.length > 0) {
                 children = <Widget>[
-                  RatePageTitle(name: 'Classificações'),
+                  RatePageTitle(name: 'Classificações da Sala de Aula'),
                   Expanded(
                     child: ListView(
                       children: List<Widget>.generate(
@@ -80,7 +79,7 @@ class _RateClassFutureBuilder extends SecondaryPageViewState {
                 ];
               } else {
                 children = <Widget>[
-                  RatePageTitle(name: 'Classificações'),
+                  RatePageTitle(name: 'Classificações da Sala de Aula'),
                   Expanded(
                       child: ListView(
                     children: [
@@ -111,7 +110,7 @@ class _RateClassFutureBuilder extends SecondaryPageViewState {
       padding: EdgeInsets.all(8),
       child: Container(
         margin: EdgeInsets.fromLTRB(12, 4, 12, 0),
-        child: RateContext(
+        child: RateRoomContext(
           lecture: lecture,
         ),
       ),
