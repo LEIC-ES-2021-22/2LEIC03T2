@@ -92,7 +92,7 @@ class RateContextState extends State<RateContext> {
                         setState(() {
                           _ratingValue = value;
                         });
-                        
+
                       })),
               Container(
               child: Align(
@@ -112,6 +112,25 @@ class RateContextState extends State<RateContext> {
               ),
               Container(
                   child: Align(
+<<<<<<< Updated upstream
+=======
+                      alignment: Alignment(0, 0.6),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          //Submits rating
+                          rateTeacher(widget.lecture.subject, widget.lecture.teacher, _ratingValue);
+                          final currentRouteName =
+                              ModalRoute.of(context).settings.name;
+                          //Change Constants.navAbout to the Main "App" Page
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (_) => RateSubmitedPageView()));
+                        },
+                        child: const Text('Submeter Classificação'),
+                      ))
+              ),
+              Container(
+                  child: Align(
+>>>>>>> Stashed changes
                       alignment: Alignment(0, 0.9),
                       child: ElevatedButton(
                         onPressed: () {
