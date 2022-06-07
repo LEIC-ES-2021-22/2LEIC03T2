@@ -1,35 +1,27 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import '../../model/entities/ratedteacher.dart';
 
 class TeacherRatingContext extends StatefulWidget {
-  final String subject;
-  final String teacher;
-  final String type;
+  final RatedTeacher ratedTeacher;
 
   TeacherRatingContext({
     Key key,
-    @required this.subject,
-    @required this.teacher,
-    @required this.type,
+    @required this.ratedTeacher,
   }) : super(key: key);
-
-  String getTeacher() {
-    return teacher;
-  }
 
   @override
   TeacherRatingContextState createState() => TeacherRatingContextState();
 }
 
 class TeacherRatingContextState extends State<TeacherRatingContext> {
-  double _ratingValue = 4.0;
   @override
   Widget build(BuildContext context) {
     return Column(mainAxisAlignment: MainAxisAlignment.start, children: [
       Container(
           width: 350,
-          height: 350,
+          height: 400,
           decoration: BoxDecoration(
               color: Colors.white,
               border: Border.all(color: Colors.white),
@@ -47,7 +39,10 @@ class TeacherRatingContextState extends State<TeacherRatingContext> {
               Align(
                 alignment: Alignment(0, -0.9),
                 child: Text(
-                  widget.subject + ' (' + widget.type + ')',
+                  widget.ratedTeacher.lecture.subject +
+                      ' (' +
+                      widget.ratedTeacher.lecture.typeClass +
+                      ')',
                   style: TextStyle(fontSize: 25),
                 ),
               ),
@@ -69,13 +64,15 @@ class TeacherRatingContextState extends State<TeacherRatingContext> {
                   )),
               Align(
                   alignment: Alignment(0, 0),
-                  child: Text(widget.teacher, style: TextStyle(fontSize: 18))),
+                  child: Text(widget.ratedTeacher.lecture.teacher,
+                      style: TextStyle(fontSize: 18))),
               Align(
                   alignment: Alignment(0, 0.3),
                   child: RatingBar(
-                    initialRating: _ratingValue,
+                    initialRating: widget.ratedTeacher.rating,
                     direction: Axis.horizontal,
                     allowHalfRating: true,
+                    ignoreGestures: true,
                     itemCount: 5,
                     ratingWidget: RatingWidget(
                         full: const Icon(Icons.star,
@@ -88,11 +85,7 @@ class TeacherRatingContextState extends State<TeacherRatingContext> {
                           Icons.star_outline,
                           color: const Color(0xFF75171E),
                         )),
-                    /*onRatingUpdate: (value) {
-                        setState(() {
-                          _ratingValue = value;
-                        });
-                      }*/)),
+                  )),
             ]);
           }))
     ]);

@@ -52,7 +52,7 @@ class RatingsSelectionViewState extends GeneralPageViewState {
                   //Change Constants.navAbout to the Main "App" Page
                   if (currentRouteName != Constants.navSchedule) {
                     Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => TeachersRatingsView()));
+                        MaterialPageRoute(builder: (_) => TeacherRatingPage()));
                   }
                 },
                 child: const Text('Professores'),

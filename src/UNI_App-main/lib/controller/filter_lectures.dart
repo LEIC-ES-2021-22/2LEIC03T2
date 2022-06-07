@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:uni/model/entities/lecture.dart';
 import 'package:redux/redux.dart';
 import 'package:uni/model/app_state.dart';
 import 'package:uni/model/entities/ratedroom.dart';
 import 'package:uni/redux/action_creators.dart';
-import 'package:uni/view/Widgets/rate_room_context.dart';
+
+import '../model/entities/ratedteacher.dart';
 
 Future<List<Lecture>> getTodayLectures(Store<AppState> store) async {
   List<Lecture> lectures = await getLectures(store);
@@ -70,33 +70,38 @@ Future<List<RatedRoom>> getRatedRooms(Store <AppState> store) async{
   return ratedrooms;
 }
 
-Future<Map<String, dynamic>> getTeacherRaing(String subject) async {
-  Map counter = new Map<String, dynamic>();
-  Map sum = new Map<String, dynamic>();
-  final collection = FirebaseFirestore.instance
+Future<double> getTeacherRating(String teachername, String teachersubject) async{
+  num counter = 0, sum = 0;
+  var collection = FirebaseFirestore.instance
       .collection('teachers')
-      .where('subject', isEqualTo: subject);
-  final querySnapshot = await collection.get();
+      .where('teacher', isEqualTo: teachername) .where('subject', isEqualTo: teachersubject);
+  var querySnapshot = await collection.get();
   for (var doc in querySnapshot.docs) {
-    if (counter.containsKey(doc.data()['teacher'])) {
-      counter.update(
-          doc.data()['teacher'], (value) => counter[doc.data()['teacher']] + 1);
-      sum.update(doc.data()['teacher'],
-          (value) => counter[doc.data()['teacher']] + doc.data()['rating']);
-    } else {
-      counter[doc.data()['teacher']] = 1;
-      sum[doc.data()['teacher']] = doc.data()['rating'];
-    }
+    sum += doc.data()['rating'];
+    counter++;
   }
+  if (counter == 0)
+    return 0;
 
-  Map result = new Map<String, dynamic>();
-  counter.forEach((key, value) {
-    result[key] = sum[key] / value;
-  });
-
-  return result;
+  return sum / counter;
 }
 
+Future<List<RatedTeacher>> getRatedTeachers(Store <AppState> store) async{
+  List <Lecture> lectures = await getLectures(store);
+  List <RatedTeacher> ratedteachers = <RatedTeacher>[];
+
+  double currteacherating;
+
+  for(Lecture lecture in lectures){
+    currteacherating = (await getTeacherRating(lecture.teacher, lecture.subject));
+
+    RatedTeacher ratedTeacher = new RatedTeacher(lecture, currteacherating);
+
+    ratedteachers.add(ratedTeacher);
+  }
+
+  return ratedteachers;
+}
 
 Future<double> getRoomRating(String name) async {
   num counter = 0, sum = 0;
@@ -116,7 +121,7 @@ Future<String> getCommentRoom(String name) async {
 
   //Initializes comments map to assert what is the most comment one
   final Map<String, int> comments = {
-    "Falta de Material": 0,
+    "Falta de material": 0,
     "Desconfortável": 0,
     "Más condições audiovisuais": 0,
   };
