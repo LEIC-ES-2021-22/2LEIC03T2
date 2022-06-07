@@ -2,14 +2,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import '../../model/entities/lecture.dart';
-import 'package:uni/model/entities/ratedteacher.dart';
 
 class TeacherRatingContext extends StatefulWidget {
-  Map<String, dynamic> teacher;
+  String teacher;
+  String subject;
+  num rating;
 
   TeacherRatingContext({
     Key key,
     @required this.teacher,
+    @required this.subject,
+    @required this.rating,
   }) : super(key: key);
 
   @override
@@ -17,7 +20,6 @@ class TeacherRatingContext extends StatefulWidget {
 }
 
 class TeacherRatingContextState extends State<TeacherRatingContext> {
-
   @override
   Widget build(BuildContext context) {
     return Column(mainAxisAlignment: MainAxisAlignment.start, children: [
@@ -39,16 +41,16 @@ class TeacherRatingContextState extends State<TeacherRatingContext> {
           child: LayoutBuilder(builder: (context, constraints) {
             return Stack(children: [
               Align(
-                alignment: Alignment(0, -0.8),
+                alignment: Alignment(0, -0.9),
                 child: Text(
-                  widget.lecture.teacher,
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+                  widget.teacher + ' (' + widget.subject + ')',
+                  style: TextStyle(fontSize: 25),
                 ),
               ),
               Align(
                   alignment: Alignment(0, -0.4),
                   child: RatingBar(
-                    initialRating: widget.ratedTeacher.rating,
+                    initialRating: widget.rating,
                     direction: Axis.horizontal,
                     allowHalfRating: true,
                     itemCount: 5,

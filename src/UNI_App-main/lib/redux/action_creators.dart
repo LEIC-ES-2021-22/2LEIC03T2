@@ -547,7 +547,4 @@ ThunkAction<AppState> setLastUserInfoUpdateTimestamp(Completer<Null> action) {
 ThunkAction<AppState> updateStateBasedOnLocalTime() {
   return (Store<AppState> store) async {
     final AppLastUserInfoUpdateDatabase db = AppLastUserInfoUpdateDatabase();
-    final DateTime savedTime = await db.getLastUserInfoUpdateTime();
-    store.dispatch(SetLastUserInfoUpdateTime(savedTime));
-  };
-}
+    final DateTime savedTime = await db.getLastUserInfoUpdateTime();store.state.content

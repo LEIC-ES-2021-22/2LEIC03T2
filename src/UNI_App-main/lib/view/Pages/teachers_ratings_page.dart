@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:uni/model/entities/ratedteacher.dart';
 import 'package:uni/redux/action_creators.dart';
 import 'package:uni/view/Pages/secondary_page_view.dart';
 import 'package:uni/view/Widgets/rate_page_title.dart';
@@ -15,8 +14,6 @@ class TeachersRatingsView extends StatefulWidget {
 }
 
 class _TeachersRatingFutureBuilder extends SecondaryPageViewState {
-  Future<List<RatedTeacher>> ratedTeachers;
-
   @override
   void initState() {
     super.initState();
@@ -25,7 +22,6 @@ class _TeachersRatingFutureBuilder extends SecondaryPageViewState {
   @override
   Widget getBody(BuildContext context) {
     final store = StoreProvider.of<AppState>(context);
-    ratedTeachers = getRatedTeachers(store);
     final MediaQueryData queryData = MediaQuery.of(context);
 
     return DefaultTextStyle(
@@ -50,15 +46,16 @@ class _TeachersRatingFutureBuilder extends SecondaryPageViewState {
                   RatePageTitle(name: 'Classificações dos Meus Professor(es)'),
                   Expanded(
                       child: ListView(
-                        children: [
-                          const Icon(
-                            Icons.error,
-                            color: Color(0xFF75151E),
-                            size: 60,
-                          ),
-                          Text('Não foi possível mostrar a classificação das salas de aula!')
-                        ],
-                      ))
+                    children: [
+                      const Icon(
+                        Icons.error,
+                        color: Color(0xFF75151E),
+                        size: 60,
+                      ),
+                      Text(
+                          'Não foi possível mostrar a classificação das salas de aula!')
+                    ],
+                  ))
                 ];
               } else if (snapshot.data.length > 0) {
                 children = <Widget>[
@@ -67,7 +64,7 @@ class _TeachersRatingFutureBuilder extends SecondaryPageViewState {
                     child: ListView(
                       children: List<Widget>.generate(
                         snapshot.data.length,
-                            (index) {
+                        (index) {
                           return Container(
                             child: createRateCard(
                               snapshot.data[index],
@@ -83,15 +80,15 @@ class _TeachersRatingFutureBuilder extends SecondaryPageViewState {
                   RatePageTitle(name: 'Classificações das Minhas Salas'),
                   Expanded(
                       child: ListView(
-                        children: [
-                          const Icon(
-                            Icons.announcement_rounded,
-                            color: Color(0xFF75151E),
-                            size: 60,
-                          ),
-                          Text('Não existem salas de aula de momento!')
-                        ],
-                      ))
+                    children: [
+                      const Icon(
+                        Icons.announcement_rounded,
+                        color: Color(0xFF75151E),
+                        size: 60,
+                      ),
+                      Text('Não existem salas de aula de momento!')
+                    ],
+                  ))
                 ];
               }
             }

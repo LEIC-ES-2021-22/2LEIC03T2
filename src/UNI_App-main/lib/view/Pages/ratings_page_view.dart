@@ -66,7 +66,7 @@ class ClasStatsPageViewState extends GeneralPageViewState {
                   //Change Constants.navAbout to the Main "App" Page
                   if (currentRouteName != Constants.navSchedule) {
                     Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => RatingsSelectionView()));
+                        MaterialPageRoute(builder: (_) => ClassRatingsView()));
                   }
                 },
                 child: const Text('Visualizar Classificações'),
@@ -78,4 +78,3 @@ class ClasStatsPageViewState extends GeneralPageViewState {
     );
   }
 }
-

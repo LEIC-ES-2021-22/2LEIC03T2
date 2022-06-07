@@ -24,9 +24,9 @@ class _RateClassFutureBuilder extends SecondaryPageViewState {
   @override
   Widget getBody(BuildContext context) {
     final store = StoreProvider.of<AppState>(context);
+    store.state.content[]
     lectures = getTodayLectures(store);
     final MediaQueryData queryData = MediaQuery.of(context);
-    getTeacherRaing('ES');
 
     return DefaultTextStyle(
         style: Theme.of(context).textTheme.headline2,
