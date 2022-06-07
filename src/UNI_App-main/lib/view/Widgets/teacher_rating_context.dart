@@ -1,20 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-<<<<<<< Updated upstream
-import '../../model/entities/lecture.dart';
-
-class TeacherRatingContext extends StatefulWidget {
-  String teacher;
-  String subject;
-  num rating;
-
-  TeacherRatingContext({
-    Key key,
-    @required this.teacher,
-    @required this.subject,
-    @required this.rating,
-=======
 import '../../model/entities/ratedteacher.dart';
 
 class TeacherRatingContext extends StatefulWidget {
@@ -23,7 +9,6 @@ class TeacherRatingContext extends StatefulWidget {
   TeacherRatingContext({
     Key key,
     @required this.ratedTeacher,
->>>>>>> Stashed changes
   }) : super(key: key);
 
   @override
@@ -31,10 +16,6 @@ class TeacherRatingContext extends StatefulWidget {
 }
 
 class TeacherRatingContextState extends State<TeacherRatingContext> {
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
   @override
   Widget build(BuildContext context) {
     return Column(mainAxisAlignment: MainAxisAlignment.start, children: [
@@ -58,20 +39,14 @@ class TeacherRatingContextState extends State<TeacherRatingContext> {
               Align(
                 alignment: Alignment(0, -0.9),
                 child: Text(
-<<<<<<< Updated upstream
-                  widget.teacher + ' (' + widget.subject + ')',
-=======
-                  widget.ratedTeacher.lecture.subject + ' (' + widget.ratedTeacher.lecture.typeClass + ')',
->>>>>>> Stashed changes
+                  widget.ratedTeacher.lecture.subject +
+                      ' (' +
+                      widget.ratedTeacher.lecture.typeClass +
+                      ')',
                   style: TextStyle(fontSize: 25),
                 ),
               ),
               Align(
-<<<<<<< Updated upstream
-                  alignment: Alignment(0, -0.4),
-                  child: RatingBar(
-                    initialRating: widget.rating,
-=======
                   alignment: Alignment(0, -0.5),
                   child: Container(
                     decoration: BoxDecoration(
@@ -89,17 +64,16 @@ class TeacherRatingContextState extends State<TeacherRatingContext> {
                   )),
               Align(
                   alignment: Alignment(0, 0),
-                  child: Text(widget.ratedTeacher.lecture.teacher, style: TextStyle(fontSize: 18))),
+                  child: Text(widget.ratedTeacher.lecture.teacher,
+                      style: TextStyle(fontSize: 18))),
               Align(
                   alignment: Alignment(0, 0.3),
                   child: RatingBar(
                     initialRating: widget.ratedTeacher.rating,
->>>>>>> Stashed changes
                     direction: Axis.horizontal,
                     allowHalfRating: true,
                     ignoreGestures: true,
                     itemCount: 5,
-                    ignoreGestures: true,
                     ratingWidget: RatingWidget(
                         full: const Icon(Icons.star,
                             color: const Color(0xFF75171E)),

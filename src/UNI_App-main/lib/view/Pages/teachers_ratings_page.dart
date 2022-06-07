@@ -1,11 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-<<<<<<< Updated upstream
-import 'package:uni/redux/action_creators.dart';
-=======
 import 'package:uni/controller/filter_lectures.dart';
->>>>>>> Stashed changes
 import 'package:uni/view/Pages/secondary_page_view.dart';
 import 'package:uni/view/Widgets/rate_page_title.dart';
 import 'package:uni/model/app_state.dart';
@@ -19,11 +15,8 @@ class TeachersRatingsView extends StatefulWidget {
 }
 
 class _TeachersRatingFutureBuilder extends SecondaryPageViewState {
-<<<<<<< Updated upstream
-=======
   Future<List<RatedTeacher>> ratedteachers;
 
->>>>>>> Stashed changes
   @override
   void initState() {
     super.initState();
@@ -32,89 +25,6 @@ class _TeachersRatingFutureBuilder extends SecondaryPageViewState {
   @override
   Widget getBody(BuildContext context) {
     final store = StoreProvider.of<AppState>(context);
-<<<<<<< Updated upstream
-    final MediaQueryData queryData = MediaQuery.of(context);
-
-    return DefaultTextStyle(
-        style: Theme.of(context).textTheme.headline2,
-        textAlign: TextAlign.center,
-        child: FutureBuilder<List<Lecture>>(
-          future: ratedTeachers,
-          builder:
-              (BuildContext context, AsyncSnapshot<List<Lecture>> snapshot) {
-            List<Widget> children;
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              children = const <Widget>[
-                SizedBox(
-                  width: 60,
-                  height: 60,
-                  child: CircularProgressIndicator(),
-                ),
-              ];
-            } else if (snapshot.connectionState == ConnectionState.done) {
-              if (snapshot.hasError) {
-                children = <Widget>[
-                  RatePageTitle(name: 'Classificações dos Meus Professor(es)'),
-                  Expanded(
-                      child: ListView(
-                    children: [
-                      const Icon(
-                        Icons.error,
-                        color: Color(0xFF75151E),
-                        size: 60,
-                      ),
-                      Text(
-                          'Não foi possível mostrar a classificação das salas de aula!')
-                    ],
-                  ))
-                ];
-              } else if (snapshot.data.length > 0) {
-                children = <Widget>[
-                  RatePageTitle(name: 'Classificações dos Meus Professor(es)'),
-                  Expanded(
-                    child: ListView(
-                      children: List<Widget>.generate(
-                        snapshot.data.length,
-                        (index) {
-                          return Container(
-                            child: createRateCard(
-                              snapshot.data[index],
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  ),
-                ];
-              } else {
-                children = <Widget>[
-                  RatePageTitle(name: 'Classificações das Minhas Salas'),
-                  Expanded(
-                      child: ListView(
-                    children: [
-                      const Icon(
-                        Icons.announcement_rounded,
-                        color: Color(0xFF75151E),
-                        size: 60,
-                      ),
-                      Text('Não existem salas de aula de momento!')
-                    ],
-                  ))
-                ];
-              }
-            }
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: children,
-              ),
-            );
-          },
-        ));
-  }
-
-=======
-    ratedteachers = getRatedTeachers(store);
     final MediaQueryData queryData = MediaQuery.of(context);
 
     return DefaultTextStyle(
@@ -122,8 +32,8 @@ class _TeachersRatingFutureBuilder extends SecondaryPageViewState {
         textAlign: TextAlign.center,
         child: FutureBuilder<List<RatedTeacher>>(
           future: ratedteachers,
-          builder:
-              (BuildContext context, AsyncSnapshot<List<RatedTeacher>> snapshot) {
+          builder: (BuildContext context,
+              AsyncSnapshot<List<RatedTeacher>> snapshot) {
             List<Widget> children;
             if (snapshot.connectionState == ConnectionState.waiting) {
               children = const <Widget>[
@@ -195,7 +105,6 @@ class _TeachersRatingFutureBuilder extends SecondaryPageViewState {
         ));
   }
 
->>>>>>> Stashed changes
   Widget createRateCard(RatedTeacher ratedTeacher) {
     return Container(
       margin: EdgeInsets.only(bottom: 8),
